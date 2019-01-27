@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController {
     
     UIActivityIndicatorView *activityIndicator;
+    UIAlertController *alertController;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;

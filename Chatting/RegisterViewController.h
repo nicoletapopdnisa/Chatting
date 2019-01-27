@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RegisterViewController : UIViewController {
     UIActivityIndicatorView *indicatorView;
+    UIAlertController *alertController;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;

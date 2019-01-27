@@ -33,6 +33,14 @@
             [self performSegueWithIdentifier:@"goToChat" sender:self];
         }
         
+        self->alertController = [UIAlertController alertControllerWithTitle:@"Invalid input!" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [self->alertController addAction:action];
+        [self presentViewController:self->alertController animated:true completion:nil];
+        
     }];
 }
 
