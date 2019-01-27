@@ -24,6 +24,22 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)createAlertToShow:(NSError *)error {
+    self->alertController = [UIAlertController alertControllerWithTitle:@"Invalid input!" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [self->alertController addAction:action];
+    [self presentViewController:self->alertController animated:true completion:nil];
+}
+
+- (void)unsetTextFields {
+    self->_emailTextField.text = nil;
+    self->_passwordTextField.text = nil;
+}
+
+
 - (IBAction)registerPressed:(id)sender {
     [indicatorView startAnimating];
     
@@ -32,14 +48,11 @@
             [self->indicatorView stopAnimating];
             [self performSegueWithIdentifier:@"goToChat" sender:self];
         }
+        else {
+         [self createAlertToShow:error];
+        }
         
-        self->alertController = [UIAlertController alertControllerWithTitle:@"Invalid input!" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        
-        [self->alertController addAction:action];
-        [self presentViewController:self->alertController animated:true completion:nil];
+        [self unsetTextFields];
         
     }];
 }

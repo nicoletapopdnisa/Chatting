@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
+- (void)createAlertToShow:(NSError* _Nullable) error;
+- (void)unsetTextFields;
+
 @end
 

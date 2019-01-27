@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 
+- (void)createAlertToShow:(NSError* _Nullable) error;
+- (void)unsetTextFields;
+
 @end
 
 NS_ASSUME_NONNULL_END
